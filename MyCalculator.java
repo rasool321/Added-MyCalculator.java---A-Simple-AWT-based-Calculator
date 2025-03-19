@@ -2,152 +2,152 @@ import java.awt.*;
 import java.awt.event.*;
 class MyCalculator extends Frame implements ActionListener
 {
-Frame fr=new Frame("MyCalculator");
-TextField tf=new TextField();
-int num1,num2,result;
-char opt;
-Button b1=new Button("1");
-Button b2=new Button("2");
-Button b3=new Button("3");
-Button b4=new Button("4");
-Button b5=new Button("5");
-Button b6=new Button("6");
-Button b7=new Button("7");
-Button b8=new Button("8");
-Button b9=new Button("9");
-Button b0=new Button("0");
-Button bc=new Button("C");
-Button bp=new Button("+");
-Button bs=new Button("-");
-Button bm=new Button("*");
-Button bd=new Button("/");
-Button bq=new Button("=");
-Panel pn=new Panel();
+Frame frame = new Frame("MyCalculator");
+TextField textfield = new TextField();
+int firstNumber,secondNumber,result;
+char option;
+Button button1 = new Button("1");
+Button button2 = new Button("2");
+Button button3 = new Button("3");
+Button button4 = new Button("4");
+Button button5 = new Button("5");
+Button button6 = new Button("6");
+Button button7 = new Button("7");
+Button button8 = new Button("8");
+Button button9 = new Button("9");
+Button button0 = new Button("0");
+Button clearButton = new Button("C");
+Button addButton = new Button("+");
+Button minusButton = new Button("-");
+Button mulitplyButton = new Button("*");
+Button divideButton = new Button("/");
+Button equalButton = new Button("=");
+Panel panel = new Panel();
 MyCalculator()
 {
-fr.add(tf,"North");
-fr.add(pn,"Center");
-addWindowListener(new WindowAdapter(){
+frame.add(textfield,"North");
+frame.add(panel, "Center");
+frame.addWindowListener(new WindowAdapter(){
    public void windowClosing(WindowEvent we) {
 System.exit(0);
    }
   });
-b1.addActionListener(this);
-b2.addActionListener(this);
-b3.addActionListener(this);
-b4.addActionListener(this);
-b5.addActionListener(this);
-b6.addActionListener(this);
-b7.addActionListener(this);
-b8.addActionListener(this);
-b9.addActionListener(this);
-b0.addActionListener(this);
-bc.addActionListener(this);
-bp.addActionListener(this);
-bs.addActionListener(this);
-bm.addActionListener(this);
-bd.addActionListener(this);
-bq.addActionListener(this);
-pn.add(b7);
-pn.add(b8);
-pn.add(b9);
-pn.add(bp);
-pn.add(b6);
-pn.add(b5);
-pn.add(b4);
-pn.add(bs);
-pn.add(b1);
-pn.add(b2);
-pn.add(b3);
-pn.add(bm);
-pn.add(bc);
-pn.add(b0);
-pn.add(bq);
-pn.add(bd);
-pn.setLayout(new GridLayout(4,4));
-fr.setVisible(true);
-fr.setSize(350,450);
+button1.addActionListener(this);
+button2.addActionListener(this);
+button3.addActionListener(this);
+button4.addActionListener(this);
+button5.addActionListener(this);
+button6.addActionListener(this);
+button7.addActionListener(this);
+button8.addActionListener(this);
+button9.addActionListener(this);
+button0.addActionListener(this);
+clearButton.addActionListener(this);
+addButton.addActionListener(this);
+minusButton.addActionListener(this);
+mulitplyButton.addActionListener(this);
+divideButton.addActionListener(this);
+equalButton.addActionListener(this);
+panel.add(button7);
+panel.add(button8);
+panel.add(button9);
+panel.add(addButton);
+panel.add(button6);
+panel.add(button5);
+panel.add(button4);
+panel.add(minusButton);
+panel.add(button1);
+panel.add(button2);
+panel.add(button3);
+panel.add(mulitplyButton);
+panel.add(clearButton);
+panel.add(button0);
+panel.add(equalButton);
+panel.add(divideButton);
+panel.setLayout(new GridLayout(4,4));
+frame.setVisible(true);
+frame.setSize(350,450);
 }
 public void windowClosing(WindowEvent e) 
 {
            dispose();
-	}
+}
 public void actionPerformed(ActionEvent ae)
 {
-String str=ae.getActionCommand();
+String str = ae.getActionCommand();
 if(str.equals("+"))
 {
-opt=str.charAt(0);
-num1=Integer.parseInt(tf.getText());
-System.out.println(num1);
-tf.setText("");
+option=str.charAt(0);
+firstNumber=Integer.parseInt(textfield.getText());
+System.out.println(firstNumber);
+textfield.setText("");
 }
 else if(str.equals("-"))
 {
-opt=str.charAt(0);
-num1=Integer.parseInt(tf.getText());
-System.out.println(num1);
-tf.setText("");
+option=str.charAt(0);
+firstNumber=Integer.parseInt(textfield.getText());
+System.out.println(firstNumber);
+textfield.setText("");
 }
 else if(str.equals("*"))
 {
-opt=str.charAt(0);
-num1=Integer.parseInt(tf.getText());
-System.out.println(num1);
-tf.setText("");
+option=str.charAt(0);
+firstNumber=Integer.parseInt(textfield.getText());
+System.out.println(firstNumber);
+textfield.setText("");
 }
 else if(str.equals("/"))
 {
-opt=str.charAt(0);
-num1=Integer.parseInt(tf.getText());
-System.out.println(num1);
-tf.setText("");
+option=str.charAt(0);
+firstNumber=Integer.parseInt(textfield.getText());
+System.out.println(firstNumber);
+textfield.setText("");
 }
 else if(str.equals("="))
 {
 String exp="";
-num2=Integer.parseInt(tf.getText());
-System.out.println(num2);
-switch(opt)
+secondNumber=Integer.parseInt(textfield.getText());
+System.out.println(secondNumber);
+switch(option)
 {
-case '+': result=num1+num2;
-		tf.setText(result+"");
+case '+': result=firstNumber+secondNumber;
+		textfield.setText(result+"");
           break;
-case '-': result=num1-num2;
-	tf.setText(result+"");
+case '-': result=firstNumber-secondNumber;
+	    textfield.setText(result+"");
           break;
-case '*': result=num1*num2;
-tf.setText(result+"");
+case '*': result=firstNumber*secondNumber;
+        textfield.setText(result+"");
           break;
 case '/': 
  try
 	{
-	  result = num1 / num2;
-tf.setText(result+"");
+	  result = firstNumber / secondNumber;
+      textfield.setText(result+"");
                     }
 	        catch(ArithmeticException aex)
                                     {
 			result=0;
 			exp=exp.concat(aex.getMessage());
-			tf.setText(result+exp);
+			textfield.setText(result+exp);
 		       	       }
 	        catch(NumberFormatException nfe)
                                     {
 		result=0;
 		exp=exp.concat(nfe.getMessage());
-tf.setText(result+exp);
+        textfield.setText(result+exp);
                                    }
           break;
 }
 }
 else if(str.equals("C"))
 {
-num1=num2=result=0;
-tf.setText("");
+firstNumber=secondNumber=result=0;
+textfield.setText("");
 }
 else
 {
-tf.setText(tf.getText()+str);
+textfield.setText(textfield.getText()+str);
 }
 }
 public static void main(String arg[])
